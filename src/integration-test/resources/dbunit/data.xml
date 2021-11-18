@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <!--  contact #1  -->
+    <contact
+            id="1"
+            first_name="IVAN"
+            last_name="DORN"
+    />
+    <phone_number
+            id="1"
+            contact_id="1"
+            code="812"
+            number="312-14-24"
+    />
+    <!--  contact #2  -->
+    <contact
+            id="2"
+            first_name="TOM"
+            last_name="YAM"
+    />
+    <phone_number
+            id="2"
+            contact_id="2"
+            code="+84"
+            number="908-15-55"
+    />
+    <phone_number
+            id="3"
+            contact_id="2"
+            code="+855"
+            number="678-01-01"
+    />
+    <!--  contact #3  -->
+    <contact
+            id="3"
+            first_name="DUNG"
+            last_name="YAM"
+    />
+</dataset>

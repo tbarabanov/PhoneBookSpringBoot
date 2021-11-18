@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+  phone-book-mysql:
+    image: mysql:5.7
+    container_name: phone-book-mysql
+    hostname: phone-book-mysql
+    networks:
+      - backend
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: phone_book
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
+      - backend:/var/lib/mysql
+
+  phone-book-app:
+    container_name: phone-book-app
+    hostname: phone-book-app
+    build:
+      context: .
+    networks:
+      - backend
+    ports:
+      - 8080:8081
+    depends_on:
+      - phone-book-mysql
+
+volumes:
+  backend:
+
+networks:
+  backend:
